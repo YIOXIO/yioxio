@@ -18,7 +18,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('styles', function(){
-    return gulp.src("src/sass/*.+(scss|saas)")
+    return gulp.src("src/sass/*.+(scss|saas|css)")
             .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
             .pipe(rename({
                 prefix:"",
@@ -33,7 +33,7 @@ gulp.task('styles', function(){
 gulp.task('watch', function() {
     gulp.watch("src/sass/*.+(scss|saas|css)", gulp.parallel('styles'));
     gulp.watch("src/*.html").on("change" , gulp.parallel('html'));
-    gulp.watch("srs/js/**/*.js").on('change', gulp.parallel('scripts'));
+    gulp.watch("srs/js/**/*.js").on("change", gulp.parallel('scripts'));
     gulp.watch("src/fonts/**/*").on('all', gulp.parallel('fonts'));
     gulp.watch("srs/icons/**/*").on('all', gulp.parallel('icons'));
     gulp.watch("srs/img/**/*").on('all', gulp.parallel('images'));
